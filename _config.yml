@@ -1,0 +1,4 @@
+redirects:
+  - from: ragnarok.buzz
+    to: store.ragnarok.buzz
+    status: 301
