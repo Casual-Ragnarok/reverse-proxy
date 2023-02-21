@@ -4,12 +4,39 @@
 
 ------
 
-这是一个把 一级域名 解析到指定 二级域名 的反向代理，具体配置见 [_config.yml](./_config.yml) 和 [404.html](./404.html)。
+## 0x00 说明
+
+这是一个把 一级域名 解析到指定 二级域名 的反向代理。
+
+具体配置见 [_config.yml](./_config.yml)、 [404.html](./404.html) 和 [CNAME](./CNAME) 。
 
 注意：
 
 - `_config.yml` 是利用了 jekyll 的特性、以便可以启动 Github Pages
 - 此仓库不能有 `README.md`、 `index.html` 等默认落地页，否则无法触发 404
 
+------
+
+## 0x10 原理
 
 > 详细可参考[这里](https://blog.walterlv.com/post/multiple-domains-for-github-pages.html)
+
+当前 DNS 配置为：
+
+```
+# 解析一级域名
+www.ragnarok.buzz   CNAME   casual-ragnarok.github.io
+
+# 解析任意二级域名
+*.ragnarok.buzz     CNAME   casual-ragnarok.github.io
+```
+
+此时 Github 允许同一个账号中、多个仓库的 Github Pages 使用不同的二级域名，例如：
+
+- A 仓库: store.ragnarok.buzz
+- B 仓库: docs.ragnarok.buzz
+
+
+正常情况下，如果 X 仓库配置为一级域名，也是可以的。
+
+但现在是希望在访问一级域名时，能够解析到 A 仓库的二级域名，故有了此仓库。
