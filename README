@@ -1,0 +1,15 @@
+# reverse-proxy
+
+> Github Pages 专用反向代理
+
+------
+
+这是一个把 一级域名 解析到指定 二级域名 的反向代理，具体配置见 [_config.yml](./_config.yml) 和 [404.html](./404.html)。
+
+注意：
+
+- `_config.yml` 是利用了 jekyll 的特性、以便可以启动 Github Pages
+- 此仓库不能有 `README.md`、 `index.html` 等默认落地页，否则无法触发 404
+
+
+> 详细可参考[这里](https://blog.walterlv.com/post/multiple-domains-for-github-pages.html)
